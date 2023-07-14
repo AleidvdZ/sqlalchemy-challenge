@@ -15,6 +15,8 @@
 
 0711 Challenge started. Part 1 Analyze and Explore Climate Data
 
+0713 Started Flask
+
 ### Links used:
 https://www.geeksforgeeks.org/how-to-change-the-number-of-ticks-in-matplotlib/
 
