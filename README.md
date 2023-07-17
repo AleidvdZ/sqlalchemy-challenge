@@ -9,7 +9,7 @@ Part 2: Create a Flask API based on the Python and SQLAlchemy queries including 
 
 ## Process and Resources
 
-## Timeline
+### Timeline
 
 0711 Git repository created
 
