@@ -21,12 +21,22 @@ Part 2: Create a Flask API based on the Python and SQLAlchemy queries including 
 
 0715 Finished static routes but need to double check
 
+0717 Worked on dyanmic routes
+
 ### Links used:
 https://www.geeksforgeeks.org/how-to-change-the-number-of-ticks-in-matplotlib/
 
 https://www.educative.io/answers/adding-images-to-readmemd-in-github
 
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+https://www.youtube.com/watch?v=cyWitavhpYM
+
+https://stackoverflow.com/questions/53460391/passing-a-date-as-a-url-parameter-to-a-flask-route
+
+https://www.geeksforgeeks.org/python-convert-string-to-datetime-and-vice-versa/
+
+https://stackoverflow.com/questions/7133007/sqlalchemy-get-max-min-avg-values-from-a-table
 
 (otherwise used class notes and examples from Module 10)
 
@@ -47,4 +57,6 @@ Solo Challenge - Aleid van der Zel
 
 Confirmation on plot output match to starter file from Hannah Hodek (classmate)
 
+Ideas on how to start dynamy routes from Kailey Carbone and also Eva Pazdera
+ 
 Office Hours help from Andrew Krieger (TA) and Ryan Coble (Instructor)
