@@ -21,7 +21,7 @@ Part 2: Create a Flask API based on the Python and SQLAlchemy queries including 
 
 0715 Finished static routes but need to double check
 
-0717 Worked on dyanmic routes
+0717 Worked and completed dyanmic routes. Double checked Jupyter Notebook and API
 
 ### Links used:
 https://www.geeksforgeeks.org/how-to-change-the-number-of-ticks-in-matplotlib/
@@ -37,6 +37,8 @@ https://stackoverflow.com/questions/53460391/passing-a-date-as-a-url-parameter-t
 https://www.geeksforgeeks.org/python-convert-string-to-datetime-and-vice-versa/
 
 https://stackoverflow.com/questions/7133007/sqlalchemy-get-max-min-avg-values-from-a-table
+
+https://stackoverflow.com/questions/45060043/flask-routing-with-multiple-optional-parameters
 
 (otherwise used class notes and examples from Module 10)
 
@@ -57,6 +59,6 @@ Solo Challenge - Aleid van der Zel
 
 Confirmation on plot output match to starter file from Hannah Hodek (classmate)
 
-Ideas on how to start dynamy routes from Kailey Carbone and also Eva Pazdera
+Ideas on how to start dynamic routes from Kailey Carbone and also Eva Pazdera
  
 Office Hours help from Andrew Krieger (TA) and Ryan Coble (Instructor)
