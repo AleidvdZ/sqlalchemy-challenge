@@ -47,6 +47,18 @@ https://stackoverflow.com/questions/45060043/flask-routing-with-multiple-optiona
 
 <img width="441" alt="tobs_USC00519281" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/0c63a6a9-ccbc-42a8-9295-507062d7231a">
 
+<img width="497" alt="landing_page" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/a9bebea2-c0ab-43af-b68e-c2e531ec8f39">
+
+<img width="341" alt="precip" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/4555751c-ba73-44ef-8cda-0f7a2f618304">
+
+<img width="266" alt="stations" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/ecc5cead-cfb0-448d-8f98-f67972a5d66e">
+
+<img width="239" alt="tobs" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/29f036ed-2a9e-4f91-89a6-bffeaf7875ce">
+
+<img width="388" alt="start_date" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/5428b984-9388-4cb3-b503-efba7607c5c7">
+
+<img width="355" alt="start_end" src="https://github.com/AleidvdZ/sqlalchemy-challenge/assets/131220504/9f26107b-9c6b-4f60-8f04-9414df42765e">
+
 ## Installing
 Jupyter Notebook
 
