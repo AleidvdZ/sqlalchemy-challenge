@@ -21,7 +21,7 @@ Part 2: Create a Flask API based on the Python and SQLAlchemy queries including 
 
 0715 Finished static routes but need to double check
 
-0717 Worked and completed dyanmic routes. Double checked Jupyter Notebook and API
+0717 Worked and completed dyanmic routes. Double checked Jupyter Notebook and app
 
 ### Links used:
 https://www.geeksforgeeks.org/how-to-change-the-number-of-ticks-in-matplotlib/
