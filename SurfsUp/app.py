@@ -1,6 +1,7 @@
 # Import the dependencies.
 import numpy as np
 import datetime as dt
+from datetime import datetime
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -33,7 +34,7 @@ app = Flask(__name__)
 # # Flask Routes
 # #################################################
 
-# Home page
+# Landing page
 @app.route("/")
 def welcome():
     
@@ -42,12 +43,16 @@ def welcome():
 
     """List all available api routes."""
     return (
+        f"This page can be used to analyze weather data for weather stations around Honolulu, Hawaii<br/>"
+        f"-------------------------------------------------------------------------------------------<br/>"
         f"Available Routes:<br/>"
         f"/api/v1.0/precipitation<br/>"
         f"/api/v1.0/stations<br/>"
         f"/api/v1.0/tobs<br/>"
         f"/api/v1.0/<start><br/>"
-        f"/api/v1.0/<start>/<end>"
+        f"/api/v1.0/<start>/<br/>"
+        f"-------------------------------------------------------------------------------------------<br/>"
+        f"(Note: for the last two routes use the date format of YYYY-MM-DD for the start and end dates)<end>"
     )
 
     session.close()
@@ -61,9 +66,7 @@ def preciptiation():
     session = Session(engine)
 
     """Return json of date and preciptiation"""
-    # Convert the query results from your precipitation analysis (only the last 12 months of data) to a dictionary using date as the key and prcp as the value.
-    query_date = session.query(measurement.date).order_by(measurement.date.desc()).first()
-    
+    # Convert the query results from your precipitation analysis (only the last 12 months of data) to a dictionary using date as the key and prcp as the value.  
     year_ago = dt.date(2017, 8, 23) - dt.timedelta(days=365)
     
     results = session.query(measurement.date, measurement.prcp).\
@@ -86,7 +89,6 @@ def stations():
     session = Session(engine)
 
     """Return json of stations"""
-    # station_results = session.query(measurement.station).distinct()
     station_results = session.query(measurement.station).\
         group_by(measurement.station).\
         order_by(func.count(measurement.station).desc()).all()
@@ -125,24 +127,73 @@ def temperature():
 
 # API dynamic route
 @app.route("/api/v1.0/<start>")
-def temp_start():
+def temp_start(start):
 
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a json list of the min temp, ave temp, max temp for a specified start or start-end range."""
-    # Return 
+    """Return a json list of the min temp, ave temp, max temp for a specified start or start-end range."""   
+    start = datetime.strptime(start, '%Y-%m-%d').date()
+ 
+    results = session.query(func.min(measurement.tobs), func.max(measurement.tobs), func.avg(measurement.tobs)).\
+        filter(measurement.date >= start).all()
 
-#   #For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
+    session.close()
 
-# @app.route("/api/v1.0/<start>/<end>")
-# def temp_start_end():
+    # Convert list of tuples into normal list and extract the values
+    temp = list(np.ravel(results))
+          
+    min = temp[0]
+    max = temp[1]
+    avg = temp[2]
 
-#     """Return.."""
-#      #For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
+    # Return response for given start date
+    try:
+        return(
+            f"For the start date ({start}) you selected to the most recent recording:<br/>"
+            f"- the minimum temperature was {min} F<br/>"
+            f"- the maximum temperature was {max} F<br/>"
+            f"- the average temperature was {avg} F<end>"
+        )
 
-# session.close()
+    except ValueError:
+       raise ValueError('date is not valid date in the format YYYY-MM-DD'.format(start))
+
+
+@app.route("/api/v1.0/<start>/<end>")
+def temp_start_end(start, end):
+
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a json list of the min temp, ave temp, max temp for a  start-end range."""   
+    start = datetime.strptime(start, '%Y-%m-%d').date()
+    end = datetime.strptime(end, '%Y-%m-%d').date()    
+
+    results = session.query(func.min(measurement.tobs), func.max(measurement.tobs), func.avg(measurement.tobs)).\
+        filter(measurement.date >= start).\
+        filter(measurement.date <= end).all()
+
+    session.close()
+
+    # Convert list of tuples into normal list and extract the values
+    temp = list(np.ravel(results))
+          
+    min = temp[0]
+    max = temp[1]
+    avg = temp[2]
+
+    # Return response for given start-end date range
+    try:
+        return(
+            f"For the date range ({start} through {end}) you selected:<br/>"
+            f"- the minimum temperature was {min} F<br/>"
+            f"- the maximum temperature was {max} F<br/>"
+            f"- the average temperature was {avg} F<br/>"
+        )
+
+    except ValueError:
+       raise ValueError('date is not valid date in the format YYYY-MM-DD'.format(start))
 
 if __name__ == '__main__':
     app.run(debug=True)
-
